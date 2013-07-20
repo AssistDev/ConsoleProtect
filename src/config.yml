@@ -1,0 +1,3 @@
+# rconpassword: The password required before executing commands from console.
+# The password is case sensitive, meaning that lower-case and upper-case letters matter when attempting to enter the password.
+rconpassword: qwerty
