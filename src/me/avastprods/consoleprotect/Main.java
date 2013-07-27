@@ -50,7 +50,7 @@ public class Main extends JavaPlugin implements Listener {
 			e.setCommand("");
 			return;
 		} else {
-			if (!pwSet && args.length = 3){
+			if (!pwSet && args.length == 3){
 					if (args[1].equalsIgnoreCase("setPW"){
 						pw = args[2];
 						cmdSender.sendMessage("[ConsoleProtect] Password Saved");
