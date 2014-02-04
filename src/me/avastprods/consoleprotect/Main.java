@@ -13,11 +13,25 @@ public class Main extends JavaPlugin implements Listener {
 	private boolean pwSet = false;
 
 	public void onEnable() {
-		getServer().getPluginManager().registerEvents(this, this);
-		getConfig().options().copyDefaults(true);
-		saveConfig();
-		pw = decode(getConfig().getString("rconpassword"));
-		pwSet = getConfig().getBoolean("passwordset");
+	    getServer().getPluginManager().registerEvents(this, this);
+	    getConfig().options().copyDefaults(true);
+	    saveConfig();
+	    pw = decode(getConfig().getString("rconpassword"));
+	    pwSet = getConfig().getBoolean("passwordset");
+	    Filter f = new Filter(){
+            public boolean isLoggable(LogRecord line) {
+            if (line.getMessage().contains("rcon")) {
+                return false;
+            }
+                return true;
+            }
+            public String doFilter(String arg0) {
+                return null;
+            }
+            public String doFilterUrl(String arg0) {
+                return null;
+            }};
+            log.setFilter(f);
 	}
 
 	public void onDisable() {
